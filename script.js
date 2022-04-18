@@ -1,20 +1,46 @@
 function add(a, b) {
-	return a + b;
+	return parseFloat(a) + parseFloat(b);
 };
 
 function subtract(a, b) {
-	return a - b;
+	return parseFloat(a) - parseFloat(b);
 };
 	
 function multiply(a, b) {
-  return a * b;
+  return parseFloat(a) * parseFloat(b);
 };
 
 function divide(a, b){
-  return a / b;
-};
+  if (b != '0'){
+  return parseFloat(a) / parseFloat(b)
+  } else {
+      alert("Divide by zero not allowed");
+      clearBtn.click();
+  }
+}
 
-let c = multiply(3, 2);
+clearBtn.onclick = function(){
+  firstOperandSpan.textContent = '';
+  operatorSpan.textContent = '';
+  secondOperandSpan.textContent = '';
+  answerZone.textContent = '';
+  //checkIfEvilAll();
+}
+
+const equalBtn = document.getElementById('equals');
+
+eqlBtn.onclick = function(){
+  if (firstOperandSpan.textContent != '' && operatorSpan.textContent != '' && secondOperandSpan.textContent != ''){
+      let answer = roundTo5decimalsMax(operate(operatorSpan.textContent, firstOperandSpan.textContent, secondOperandSpan.textContent));
+      answerZone.textContent = answer;
+      firstOperandSpan.textContent = '';
+      operatorSpan.textContent = '';
+      secondOperandSpan.textContent = '';
+      checkIfEvilAll();
+  } else {
+      console.log("Wat u doin mon?");
+  }
+}
 
 /*function sum(array) {
   return array.reduce((total, current) => total + current, 0);

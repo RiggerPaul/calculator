@@ -1,0 +1,126 @@
+/* General Styling */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: #4c728398;
+  font-size: 1.5em;
+}
+
+.calculator-body {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(5, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(4, 100px);
+}
+
+/* For small laptops and large tablets 
+
+@media only screen and (max-width: 1025px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  .calculator-grid {
+    grid-template-columns: repeat(5, 90px);
+    grid-template-rows: minmax(120px, auto) repeat(4, 100px);
+  }
+}
+/* For small tablets and phones 
+
+@media only screen and (max-width: 520px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  .calculator-grid {
+    grid-template-columns: repeat(5, 65px);
+    grid-template-rows: minmax(120px, auto) repeat(4, 80px);
+  }
+}
+
+/* For small phones 
+
+@media only screen and (max-width: 425px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .calculator-grid {
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: minmax(100px, auto) repeat(4, 60px);
+  }
+}
+
+/* Clear default button styling */
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* Custom style buttons */
+
+.calculator-body > button {
+  border: 1px solid white;
+  background-color: #08537598;
+}
+
+.calculator-body > button:hover,
+.calculator-body > button:active {
+  background-color: #b6ece1;
+}
+
+button.number {
+  background-color: #b2ebf1d5;
+}
+
+button.operator {
+  background-color: #88c3cad5;
+}
+
+.large-btn {
+  grid-column: span 2;
+}
+
+/* Style display area*/
+
+.output {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  word-wrap: break-word;
+  word-break: break-all;
+  padding: 10px;
+  background-color: #08537598;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.output .previous-operand,
+.output .current-operand {
+  color: #fffffff8;
+}
+
+.output .current-operand {
+  font-size: 2em;
+  font-weight: 400;
+}
